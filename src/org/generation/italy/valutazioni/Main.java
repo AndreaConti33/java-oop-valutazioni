@@ -16,11 +16,17 @@ public class Main {
 		for (int i = 0; i < studenti.length; i++) {
 			idStudente++;
 			assenze = rd.nextInt(101);
-			mediaVoti = rd.nextInt(6);
+			mediaVoti = rd.nextDouble() * 5.0;
 
 			studenti[i] = new CalcolaValutazione(idStudente, assenze, mediaVoti);
 
-			System.out.println(" Lo studente con numero di id: " + idStudente + " " + studenti[i].valutazione());
+			if (studenti[i].valutazione() == true) {
+				System.out.println("Lo studente con id " + idStudente + " è promosso, " + "con una media voti di "
+						+ mediaVoti + " e " + assenze + " assenze");
+			} else {
+				System.out.println("Lo studente con id " + idStudente + " è bocciato, " + "con una media voti di "
+						+ mediaVoti + " e " + assenze + " assenze");
+			}
 
 		}
 

@@ -12,16 +12,16 @@ public class CalcolaValutazione {
 		this.mediaVoti = mediaVoti;
 	}
 
-	String valutazione() {
-		String valutazione = "";
+	boolean valutazione() {
+		boolean valutazione;
 		if (assenze > 50) {
-			valutazione = "è bocciato";
-		} else if (assenze <= 50 && assenze >= 25 && mediaVoti > 2) {
-			valutazione = "è promosso";
-		} else if (assenze < 25 && mediaVoti >= 2) {
-			valutazione = "è promosso";
+			valutazione = false;
+		} else if (assenze <= 50 && assenze >= 25) {
+			valutazione = mediaVoti > 2;
+		} else if (assenze < 25) {
+			valutazione = mediaVoti >= 2;
 		} else {
-			valutazione = "è bocciato";
+			valutazione = false;
 		}
 		return valutazione;
 
